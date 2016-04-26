@@ -2,6 +2,8 @@ package pacman;
 
 import java.util.PriorityQueue;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 class Vertex implements Comparable<Vertex>
 {
@@ -61,15 +63,15 @@ public class Dijkstra
 	    }
     }
 
-//    public List<Vertex> getShortestPathTo(Vertex target)
-//    {
-//        List<Vertex> path = new ArrayList<Vertex>();
-//        for (Vertex vertex = target; vertex != null; vertex = vertex.previous)
-//            path.add(vertex);
-//
-//        Collections.reverse(path);
-//        return path;
-//    }
+    public List<Vertex> getShortestPathTo(Vertex target)
+    {
+        List<Vertex> path = new ArrayList<Vertex>();
+        for (Vertex vertex = target; vertex != null; vertex = vertex.previous)
+            path.add(vertex);
+
+        Collections.reverse(path);
+        return path;
+    }
 
     public int getDistance(int y1,int x1,int y2,int x2)
     {
