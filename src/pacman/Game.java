@@ -392,14 +392,18 @@ class GamePanel extends JPanel
 			}
 			
 		}
-		g.drawImage(pacman.getImage(),pacman.getX(),pacman.getY(),18,18, null);
+		if((System.currentTimeMillis()-healthPanel.getStartTime())%300 >= 100 && (System.currentTimeMillis()-healthPanel.getStartTime())%300 <= 299 || System.currentTimeMillis()-healthPanel.getStartTime()>3000)
+			g.drawImage(pacman.getImage(),pacman.getX(),pacman.getY(),18,18, null);
 		repaint();
 	}
 	@Override
 	protected void processComponentEvent(ComponentEvent e)
 	{
 		if(e.getID()==Messages.exit)
+		{
 			parent.dispose();
+			parent = null;
+		}
 
 	}
 	
@@ -447,6 +451,8 @@ class HealthPanel extends JPanel
 	private String playerName;
 	private int sizeX;
 	private GamePanel gamePanel;
+	private long startTime = System.currentTimeMillis();
+	
 	public HealthPanel(int x,int y,int msg,String playerName)  // msg : 0 -> die message , 5 -> win message
 	{	
 		score = 0;
@@ -544,7 +550,14 @@ class HealthPanel extends JPanel
 			JOptionPane.showMessageDialog(null, "You win "+playerName+"\nScore:"+score);
 			System.exit(0);
 		}
+		startTime = System.currentTimeMillis();
 		repaint();
+	}
+	public long getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(long startTime) {
+		this.startTime = startTime;
 	}
 	public int getScore() {
 		return score;
