@@ -98,7 +98,7 @@ public class MainFrame extends JFrame
 				ghostsNum += (check1.isSelected())? 2 : 0;
 				ghostsNum += (check2.isSelected())? 2 : 0;
 				ghostsNum += (check3.isSelected())? 2 : 0;
-				if(emptyRoom>=ghostsNum+1)
+				if(emptyRoom>=ghostsNum+2) // 1 for pacman and 1 for have at least a food
 				{
 					String name = playerName.getText();
 					if(map.length()!=0)

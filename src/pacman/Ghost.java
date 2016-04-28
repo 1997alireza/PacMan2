@@ -57,7 +57,7 @@ public abstract class Ghost
 							{
 								t = true;
 								for(int k=this.getOrderNum()+1;k<ghosts.size();k++)
-									if(k<ghosts.size() && ghosts.get(k).getRec().intersects(this.rec))
+									if(k<ghosts.size() && k<ghosts.size() && ghosts.get(k).getRec().intersects(this.rec))
 									{
 										t = false;
 										break;
@@ -119,7 +119,7 @@ public abstract class Ghost
 							{
 								t = true;
 								for(int k=this.getOrderNum()+1;k<ghosts.size();k++)
-									if(ghosts.get(k).getRec().intersects(this.rec))
+									if(k<ghosts.size() && ghosts.get(k).getRec().intersects(this.rec))
 									{
 										t = false;
 										break;

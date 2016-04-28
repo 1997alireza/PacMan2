@@ -36,9 +36,8 @@ public class Game extends JFrame
 		Clip clip = null;
 		try {
 			clip = AudioSystem.getClip();
-		} catch (LineUnavailableException e1) {
-			// TODO Auto-generated catch block
-		}
+		} catch (LineUnavailableException e1) {}
+		
         AudioInputStream inputStream;
 		try {
 			File sound = new File("src/pacman/sounds/start.wav");
@@ -65,7 +64,6 @@ public class Game extends JFrame
 			else
 				j++;
 		}
-		System.out.println(maxRow);
 		this.maxRow = maxRow;
 		this.mapLines = mapLines;
 		map = new boolean[mapLines+2][maxRow+2];
@@ -272,7 +270,7 @@ class GamePanel extends JPanel
 		foods = new ArrayList<Food>(); //for foods
 		for(int i=0;i<mainGroupT.size();i++)
 		{
-			if(Math.random()>0.6)
+			if(Math.random()>0.6 || i==mainGroupT.size()/2) // i==mainGroupT.size() -> to be shure have food in map
 				foods.add(new Food(mainGroupT.get(i)[1], mainGroupT.get(i)[0]));
 		}
 		foodNum = foods.size();
@@ -306,13 +304,13 @@ class GamePanel extends JPanel
 				{
 					foods.get(i).eat();
 					foodNum--;
+					healthPanel.setScore(healthPanel.getScore()+10);
 					if(foodNum==0)
 						healthPanel.dispatchEvent(new ComponentEvent(this, Messages.win));
-					healthPanel.setScore(healthPanel.getScore()+10);
 					healthPanel.repaint();
 				}
 				else
-				{	
+				{
 					g.drawImage(foods.get(i).getImage(), foods.get(i).getX()*23+10, foods.get(i).getY()*23+10, 4,4,null);
 				}
 			}
@@ -320,7 +318,7 @@ class GamePanel extends JPanel
 		}
 		for(int i=0;i<ghosts.size();i++)
 		{
-			if(ghosts.get(i).getRec().intersects(pacman.getRec()) && System.currentTimeMillis()-healthPanel.getStartTime()>3000)
+			if(ghosts.get(i).getRec().intersects(pacman.getRec())  && System.currentTimeMillis()-healthPanel.getStartTime()>3000)
 			{
 				try 
 				{
@@ -403,6 +401,7 @@ class GamePanel extends JPanel
 		if(e.getID()==Messages.exit)
 		{
 			parent.dispose();
+			parent.removeAll();
 			parent = null;
 		}
 
@@ -496,18 +495,14 @@ class HealthPanel extends JPanel
 				Clip clip = null;
 				try {
 					clip = AudioSystem.getClip();
-				} catch (LineUnavailableException e1) {
-					// TODO Auto-generated catch block
-				}
+				} catch (LineUnavailableException e1) {}
 		        AudioInputStream inputStream;
 				try {
 					File sound = new File("src/pacman/sounds/die.wav");
 					inputStream = AudioSystem.getAudioInputStream(sound);
 			        try {
 						clip.open(inputStream);
-					} catch (LineUnavailableException e2) {
-						// TODO Auto-generated catch block
-					}
+					} catch (LineUnavailableException e2) {}
 			        clip.start();
 				} catch(UnsupportedAudioFileException | IOException e2) {}
 				//for play sound
