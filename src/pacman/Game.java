@@ -62,9 +62,10 @@ public class Game extends JFrame
 				maxRow = (j>maxRow)?j:maxRow;
 				j=0;
 			}
-			j++;
+			else
+				j++;
 		}
-		maxRow--;
+		System.out.println(maxRow);
 		this.maxRow = maxRow;
 		this.mapLines = mapLines;
 		map = new boolean[mapLines+2][maxRow+2];
@@ -334,7 +335,7 @@ class GamePanel extends JPanel
 
 					boolean mapT [][] = new boolean [map[0].length][map.length];
 					for(int ii=0;ii<map.length;ii++)
-						for(int jj=0;jj<map[i].length;jj++)
+						for(int jj=0;jj<map[ii].length;jj++)
 							mapT[jj][ii] = map[ii][jj];
 					int pacStart = (int)(Math.random() * mainGroupT.size()); //	for live again
 					mainGroupT.remove(pacStart);

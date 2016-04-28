@@ -93,11 +93,23 @@ public class MainFrame extends JFrame
 			public void actionPerformed(ActionEvent e) 
 			{
 				String map = mapArea.getText();
-				String name = playerName.getText();
-				if(map.length()!=0)
-					new Game(map,mapArea.getLineCount(),check1.isSelected(),check2.isSelected(),check3.isSelected(),name);
-				else if(map.length()==0)
-					JOptionPane.showMessageDialog(null,"Enter the map.");
+				int emptyRoom = map.length() - map.replace(" ", "").length();
+				int ghostsNum = 0; 
+				ghostsNum += (check1.isSelected())? 2 : 0;
+				ghostsNum += (check2.isSelected())? 2 : 0;
+				ghostsNum += (check3.isSelected())? 2 : 0;
+				if(emptyRoom>=ghostsNum+1)
+				{
+					String name = playerName.getText();
+					if(map.length()!=0)
+						new Game(map,mapArea.getLineCount(),check1.isSelected(),check2.isSelected(),check3.isSelected(),name);
+					else if(map.length()==0)
+						JOptionPane.showMessageDialog(null,"Enter the map.");
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "There isn't enough empty room!");
+				}
 				
 			}
 		});
