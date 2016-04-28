@@ -319,7 +319,7 @@ class GamePanel extends JPanel
 		}
 		for(int i=0;i<ghosts.size();i++)
 		{
-			if(ghosts.get(i).getRec().intersects(pacman.getRec()))
+			if(ghosts.get(i).getRec().intersects(pacman.getRec()) && System.currentTimeMillis()-healthPanel.getStartTime()>3000)
 			{
 				try 
 				{
