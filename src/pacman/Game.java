@@ -305,9 +305,9 @@ class GamePanel extends JPanel
 					foods.get(i).eat();
 					foodNum--;
 					healthPanel.setScore(healthPanel.getScore()+10);
+					healthPanel.repaint();
 					if(foodNum==0)
 						healthPanel.dispatchEvent(new ComponentEvent(this, Messages.win));
-					healthPanel.repaint();
 				}
 				else
 				{
