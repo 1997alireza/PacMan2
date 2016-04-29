@@ -32,14 +32,14 @@ public class Ghost2  extends Ghost	//Pinky		-> Pink , Ambusher , Speedy
 	protected void makeMove() 
 	{
 		boolean t = false;
-		if(y==pacman.getY())
+		if(y>pacman.getY()-5 && y<pacman.getY()+5)
 		{
 			t = false;
 			for(int i = x+23;i<x+6*23 && i<map[0].length;i+=1)
 			{
 				if(map[(y-4)/23][(i-3)*23])
 					break;
-				if(i==pacman.getX())
+				if(i>pacman.getX()-5 && i<pacman.getX()+5)
 					t = true;
 			}
 			if(t)
@@ -52,21 +52,21 @@ public class Ghost2  extends Ghost	//Pinky		-> Pink , Ambusher , Speedy
 				{
 					if(map[(y-4)/23][(i-3)/23])
 						break;
-					if(i==pacman.getX())
+					if(i>pacman.getX()-5 && i<pacman.getX()+5)
 						t = true;
 				}
 				if(t)
 					goLeft();
 			}
 		}
-		else if(x==pacman.getX())
+		else if(x>pacman.getX()-5 && x<pacman.getX()+5)
 		{
 			t = false;
 			for(int j = y+23;j<y+6*23 && j<map.length;j+=1)
 			{
 				if(map[(j-4)/23][(x-3)/23])
 					break;
-				if(j==pacman.getY())
+				if(j>pacman.getY()-5 && j<pacman.getY()+5)
 					t = true;
 			}
 			if(t)
@@ -78,7 +78,7 @@ public class Ghost2  extends Ghost	//Pinky		-> Pink , Ambusher , Speedy
 				{
 					if(map[(j-4)/23][(x-3)/23])
 						break;
-					if(j==pacman.getY())
+					if(j>pacman.getY()-5 && j<pacman.getY()+5)
 						t = true;
 				}
 				if(t)
