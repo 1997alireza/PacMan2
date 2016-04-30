@@ -400,9 +400,10 @@ class GamePanel extends JPanel
 	{
 		if(e.getID()==Messages.exit)
 		{
-			parent.dispose();
-			parent.removeAll();
-			parent = null;
+//			parent.dispose();
+//			parent.removeAll();
+//			parent = null;
+			System.exit(0);
 		}
 
 	}

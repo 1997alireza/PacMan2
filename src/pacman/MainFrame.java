@@ -101,10 +101,12 @@ public class MainFrame extends JFrame
 				if(emptyRoom>=ghostsNum+2) // 1 for pacman and 1 for have at least a food
 				{
 					String name = playerName.getText();
-					if(map.length()!=0)
+					if(map.length()!=0 /*	&& name.length()!=0	*/)
 						new Game(map,mapArea.getLineCount(),check1.isSelected(),check2.isSelected(),check3.isSelected(),name);
 					else if(map.length()==0)
 						JOptionPane.showMessageDialog(null,"Enter the map.");
+//					else
+//						JOptionPane.showMessageDialog(null,"Enter the name.");
 				}
 				else
 				{

@@ -31,6 +31,7 @@ public class Ghost2  extends Ghost	//Pinky		-> Pink , Ambusher , Speedy
 	@Override
 	protected void makeMove() 
 	{
+		sleepTime = 85;
 		boolean t = false;
 		if(y>pacman.getY()-5 && y<pacman.getY()+5)
 		{
@@ -86,6 +87,8 @@ public class Ghost2  extends Ghost	//Pinky		-> Pink , Ambusher , Speedy
 			}
 		}
 		if(!t) //still not moving
+		{
+			sleepTime = 105;
 			if(isStoped || System.currentTimeMillis()%5000<=200 || System.currentTimeMillis()%5000>=4800)
 			{
 				int d = (int)(Math.random() * 4 +1);
@@ -105,6 +108,7 @@ public class Ghost2  extends Ghost	//Pinky		-> Pink , Ambusher , Speedy
 					break;
 				}
 			}
+		}
 		
 		
 	}
