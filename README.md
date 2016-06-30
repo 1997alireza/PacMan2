@@ -1,7 +1,8 @@
 # Pacman
 Pacman game
 
-![Screen Shot](http://sk.uploads.im/t/Fr3k0.png)
+<img src="https://cdn.pbrd.co/images/24JPfFAI.png" width="600">
+
 
 - 3 Ghost types
 - Map editor 
