@@ -6,3 +6,4 @@ Pacman game
 - 3 Ghost types
 - Map editor 
 - Save and load map 
+- Using Dijkstra's algorithm
