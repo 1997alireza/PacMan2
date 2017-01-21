@@ -1,5 +1,5 @@
-# Pacman
-Pacman game :video_game:
+# Pacman :video_game:
+Pacman game
 
 <img src="https://cdn.pbrd.co/images/24JPfFAI.png" width="600">
 
