@@ -1,7 +1,7 @@
 # Pacman :video_game:
 Pacman game
 
-<img src="https://cdn.pbrd.co/images/24JPfFAI.png" width="600">
+<img src="https://github.com/1997alireza/Pacman/blob/master/screenshot.png" width="600">
 
 
 - 3 Ghost types
